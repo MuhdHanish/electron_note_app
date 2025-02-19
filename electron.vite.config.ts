@@ -22,6 +22,7 @@ export default defineConfig({
         '@shared': resolve('src/shared'),
         '@renderer': resolve('src/renderer/src'),
         '@/hooks': resolve('src/renderer/src/hooks'),
+        '@/types': resolve('src/renderer/src/types'),
         '@/store': resolve('src/renderer/src/store'),
         '@/mocks': resolve('src/renderer/src/mocks'),
         '@/assets': resolve('src/renderer/src/assets'),
