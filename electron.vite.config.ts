@@ -19,15 +19,13 @@ export default defineConfig({
     assetsInclude: ['src/renderer/assets/**'],
     resolve: {
       alias: {
-        '@renderer': resolve('src/renderer/src'),
         '@shared': resolve('src/shared'),
-        '@hooks': resolve('src/renderer/src/hooks'),
-        '@utils': resolve('src/renderer/src/utils'),
-        '@assets': resolve('src/renderer/src/assets'),
-        '@store': resolve('src/renderer/src/store'),
-        '@components': resolve('src/renderer/src/components'),
-        '@types': resolve('src/renderer/src/types'),
-        '@mocks': resolve('src/renderer/src/mocks')
+        '@renderer': resolve('src/renderer/src'),
+        '@/hooks': resolve('src/renderer/src/hooks'),
+        '@/store': resolve('src/renderer/src/store'),
+        '@/mocks': resolve('src/renderer/src/mocks'),
+        '@/assets': resolve('src/renderer/src/assets'),
+        '@/components': resolve('src/renderer/src/components'),
       }
     },
     plugins: [react()]
