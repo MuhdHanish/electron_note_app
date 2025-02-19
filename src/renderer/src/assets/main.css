@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  #root {
+    @apply h-full;
+  }
+
+  html,
+  body {
+    @apply h-full select-none bg-transparent text-white font-mono antialiased overflow-hidden;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+}
