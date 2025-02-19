@@ -1,7 +1,7 @@
-import { contextBridge } from "electron";
+import { contextBridge } from 'electron'
 
 if (!process.contextIsolated) {
-  throw new Error(`contextIsolation must be enabled in the BrowserWindow`);
+  throw new Error(`contextIsolation must be enabled in the BrowserWindow`)
 }
 
 try {
@@ -9,5 +9,5 @@ try {
     // TODO
   })
 } catch (error) {
-  console.error(error);
+  console.error(error)
 }
