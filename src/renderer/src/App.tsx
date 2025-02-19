@@ -1,8 +1,14 @@
+import { Sidebar, Content, RootLayout, DraggableTopBar } from '@/components'
+
 function App(): JSX.Element {
   return (
-    <div className="h-full flex-center">
-      <span className="text-xl text-teal-500 font-bold">Electron Note App</span>
-    </div>
+    <>
+      <DraggableTopBar />
+      <RootLayout>
+        <Sidebar className="p-2"></Sidebar>
+        <Content className="border-l border-l-white/20 bg-zinc-900/50"></Content>
+      </RootLayout>
+    </>
   )
 }
 
