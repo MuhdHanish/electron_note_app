@@ -12,4 +12,5 @@ const dateFormatter = new Intl.DateTimeFormat(window.context.locale, {
   hour12: true
 })
 
-export const formatDateFromMS = (ms: number) => dateFormatter.format(ms)?.replace(/\b(am|pm)\b/g, (match) => match?.toUpperCase());
+export const formatDateFromMS = (ms: number) =>
+  dateFormatter.format(ms)?.replace(/\b(am|pm)\b/g, (match) => match?.toUpperCase())
