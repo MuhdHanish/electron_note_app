@@ -5,7 +5,7 @@ import { FilePen } from 'lucide-react'
 export const NewNoteButton = ({ ...props }: ButtonProps) => {
   return (
     <ActionButton {...props}>
-      <FilePen className="size-4 text-zinc-300" />
+      <FilePen className="size-3.5 text-zinc-300" />
     </ActionButton>
   )
 }
