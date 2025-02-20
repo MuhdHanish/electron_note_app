@@ -6,7 +6,7 @@ function App(): JSX.Element {
       <DraggableTopBar />
       <RootLayout>
         <Sidebar className="p-2">
-          <ActionButtonsRow className='flex justify-between mt-1'/>
+          <ActionButtonsRow className="flex justify-between mt-1" />
         </Sidebar>
         <Content className="border-l border-l-white/20 bg-zinc-900/50"></Content>
       </RootLayout>
