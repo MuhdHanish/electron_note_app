@@ -1,5 +1,5 @@
 import { ActionButton } from '@/components'
-import { ButtonProps } from '@renderer/types'
+import { ButtonProps } from '@shared/models'
 import { FilePen } from 'lucide-react'
 
 export const NewNoteButton = ({ ...props }: ButtonProps) => {
