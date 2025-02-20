@@ -14,7 +14,7 @@ export const NotePreviewList = ({ className, ...props }: ComponentProps<'ul'>) =
   }
 
   return (
-    <ul {...props}>
+    <ul {...props} className={twMerge(className)}>
       {notes?.map((note, index) => (
         <NotePreview {...note} key={`${note?.title}-${index}-${note?.updatedAt}`} />
       ))}

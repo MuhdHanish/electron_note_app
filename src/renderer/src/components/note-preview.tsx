@@ -28,7 +28,7 @@ export const NotePreview = ({
       )}
     >
       <h3 className="mb-1 font-bold truncate">{title}</h3>
-      <span className="inline-block w-full mb-2 text-xs font-light text-left">{formattedDate}</span>
+      <span className="inline-block w-full mb-2 text-xs font-light text-left text-zinc-400">{formattedDate}</span>
     </div>
   )
 }
