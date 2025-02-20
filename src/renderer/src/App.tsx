@@ -4,7 +4,8 @@ import {
   RootLayout,
   DraggableTopBar,
   ActionButtonsRow,
-  NotePreviewList
+  NotePreviewList,
+  MarkdownEditor
 } from '@/components'
 
 function App(): JSX.Element {
@@ -16,7 +17,9 @@ function App(): JSX.Element {
           <ActionButtonsRow className="flex justify-between mt-1" />
           <NotePreviewList className="mt-4 space-y-1" />
         </Sidebar>
-        <Content className="border-l border-l-white/20 bg-zinc-900/50"></Content>
+        <Content className="border-l border-l-white/20 bg-zinc-900/50">
+          <MarkdownEditor />
+        </Content>
       </RootLayout>
     </>
   )
