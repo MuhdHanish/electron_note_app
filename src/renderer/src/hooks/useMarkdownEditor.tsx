@@ -8,9 +8,17 @@ export const useMarkdownEditor = () => {
   const saveNote = useSetAtom(saveNoteAtom)
   const editorRef = useRef<MDXEditorMethods | null>(null)
 
+  const handleAutoSaving = async () => { 
+    if (!selectedNote) return
+    
+    console.info(`Auto saving: ${selectedNote?.title}`)
+
+    await saveNote(selectedNote?.content)
+  }
+
   return {
     selectedNote,
-    saveNote,
-    editorRef
+    editorRef,
+    handleAutoSaving
   }
 }
