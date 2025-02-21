@@ -1,4 +1,4 @@
-# electron_note_app
+# Electron Note App
 
 An Electron application with React and TypeScript
 
