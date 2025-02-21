@@ -1,4 +1,4 @@
-import { ButtonProps } from '@shared/models'
+import { ButtonProps } from '@shared/types'
 import { twMerge } from 'tailwind-merge'
 
 export const ActionButton = ({ children, className, ...props }: ButtonProps) => {

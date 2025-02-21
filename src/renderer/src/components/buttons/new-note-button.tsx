@@ -1,6 +1,6 @@
 import { ActionButton } from '@/components'
 import { createEmptyNoteAtom } from '@renderer/store'
-import { ButtonProps } from '@shared/models'
+import { ButtonProps } from '@shared/types'
 import { useSetAtom } from 'jotai'
 import { FilePen } from 'lucide-react'
 
