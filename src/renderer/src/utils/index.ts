@@ -8,7 +8,6 @@ export function cn(...inputs: ClassValue[]) {
 const dateFormatter = new Intl.DateTimeFormat(window.context.locale, {
   dateStyle: 'short',
   timeStyle: 'short',
-  timeZone: 'UTC',
   hour12: true
 })
 
