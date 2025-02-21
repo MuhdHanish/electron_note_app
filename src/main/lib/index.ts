@@ -41,7 +41,7 @@ export const readNote: ReadNote = async (fileName) => {
 export const writeNote: WriteNote = async (fileName, content) => {
   const rootDir = getRootDir()
 
-  console.info(`Writing note to ${rootDir}/${fileName}.md`)
+  console.info(`Writing note to ${fileName}`)
 
   return writeFile(`${rootDir}/${fileName}.md`, content, FILE_ENCODING)
 }
