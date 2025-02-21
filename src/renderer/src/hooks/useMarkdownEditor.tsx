@@ -1,6 +1,7 @@
 import { MDXEditorMethods } from '@mdxeditor/editor'
 import { saveNoteAtom, selectedNoteAtom } from '@renderer/store'
 import { useAtomValue, useSetAtom } from 'jotai'
+import { throttle } from 'lodash'
 import { useRef } from 'react'
 
 export const useMarkdownEditor = () => {
@@ -8,13 +9,16 @@ export const useMarkdownEditor = () => {
   const saveNote = useSetAtom(saveNoteAtom)
   const editorRef = useRef<MDXEditorMethods | null>(null)
 
-  const handleAutoSaving = async () => { 
+  const handleAutoSaving = throttle(async () => { 
     if (!selectedNote) return
     
     console.info(`Auto saving: ${selectedNote?.title}`)
 
     await saveNote(selectedNote?.content)
-  }
+  }, 3000, {
+    leading: false,
+    trailing: true
+  })
 
   return {
     selectedNote,
