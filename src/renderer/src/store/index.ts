@@ -31,7 +31,7 @@ export const createEmptyNoteAtom = atom(null, (get, set) => {
   if (!notes) return
 
   const newNote = {
-    title: `New Note ${notes.length + 1}`,
+    title: `New Note ${notes?.length + 1}`,
     updatedAt: new Date().getTime()
   }
 
