@@ -2,7 +2,7 @@ import { ComponentProps } from 'react'
 import { NotePreview } from '@/components'
 import { twMerge } from 'tailwind-merge'
 import { useNotesList } from '@/hooks'
-import { isEmpty } from "lodash"
+import { isEmpty } from 'lodash'
 
 type NotePreviewListProps = ComponentProps<'ul'> & {
   onSelect?: () => void
