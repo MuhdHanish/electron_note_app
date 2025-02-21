@@ -72,7 +72,6 @@ export const saveNoteAtom = atom(null, async (get, set, newContent: NoteContent)
 
 export const deleteNoteAtom = atom(null, (get, set) => {
   const notes = get(notesAtom)
-
   if (!notes) return
 
   const selectedNote = get(selectedNoteAtom)
