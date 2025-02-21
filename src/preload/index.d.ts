@@ -1,6 +1,6 @@
 // import { ElectronAPI } from '@electron-toolkit/preload'
 
-import { GetNotes, ReadNote } from '@shared/types'
+import { GetNotes, ReadNote, WriteNote } from '@shared/types'
 
 export {}
 
@@ -11,6 +11,7 @@ declare global {
       locale: string
       getNotes: GetNotes
       readNote: ReadNote
+      writeNote: WriteNote
     }
   }
 }
