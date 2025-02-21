@@ -1,5 +1,7 @@
 // import { ElectronAPI } from '@electron-toolkit/preload'
 
+import { GetNotes } from '@shared/types'
+
 export {}
 
 declare global {
@@ -7,6 +9,7 @@ declare global {
     // electron: ElectronAPI
     context: {
       locale: string
+      getNotes: GetNotes
     }
   }
 }
