@@ -18,9 +18,9 @@ Transform your plain text into beautifully formatted notes using these Markdown 
 
 Make your text stand out with these formatting options:
 
-- Make it **bold** by wrapping text in double asterisks: `**bold**`
-- Add _emphasis_ with underscores: `_emphasis_`
-- Combine them for **_bold italic_** text: `**_bold italic_**`
+- Make it **bold** by wrapping text in double asterisks: **bold**
+- Add _emphasis_ with underscores: _emphasis_
+- Combine them for **_bold italic_** text: **_bold italic_**
 
 ### Headings 📚
 
