@@ -1,3 +1,6 @@
+![alt img](./resources/preview.png)
+
+
 # Electron Note App
 
 A Markdown note-taking application built with Electron, React, and TypeScript. This project was created as a learning exercise to understand Electron and desktop application development while implementing practical features like real-time Markdown editing and file system operations.
