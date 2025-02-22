@@ -9,7 +9,7 @@ const loadNotes = async () => {
 
 const notesAtomAsync = atom<NoteInfo[] | Promise<NoteInfo[]>>(loadNotes())
 
-export const notesAtom = unwrap(notesAtomAsync, (prev) => prev)
+export const notesAtom = unwrap(notesAtomAsync, (prev) => prev ?? [])
 
 export const selectedNoteIndexAtom = atom<number | null>(null)
 
@@ -20,30 +20,38 @@ const selectedNoteAtomAsync = atom(async (get) => {
   if (noteIndex === null || !notes) return null
 
   const selectedNote = notes[noteIndex]
-  const noteContent = await window.context.readNote(selectedNote?.title)
+  if (!selectedNote?.title) return null
 
-  return {
-    ...selectedNote,
-    content: noteContent
+  try {
+    const noteContent = await window.context.readNote(selectedNote?.title)
+
+    return {
+      ...selectedNote,
+      content: noteContent
+    }
+  } catch (error) {
+    console.error('Error reading note:', error)
+    return null
   }
 })
 
-export const selectedNoteAtom = unwrap(
-  selectedNoteAtomAsync,
-  (prev) => prev ?? { title: '', content: '', updatedAt: Date.now() }
-)
+export const selectedNoteAtom = unwrap(selectedNoteAtomAsync, (prev) => prev ?? null)
 
 export const createEmptyNoteAtom = atom(null, async (get, set) => {
   const notes = get(notesAtom)
   if (!notes) return
 
-  const title = await window.context.createNote()
-  if (!title) return
+  try {
+    const title = await window.context.createNote()
+    if (!title) return
 
-  const newNote = { title, updatedAt: Date.now() }
+    const newNote = { title, updatedAt: Date.now() }
 
-  set(notesAtom, [newNote, ...notes?.filter((note) => note?.title !== newNote?.title)])
-  set(selectedNoteIndexAtom, 0)
+    set(notesAtom, [newNote, ...notes?.filter((note) => note?.title !== newNote?.title)])
+    set(selectedNoteIndexAtom, 0)
+  } catch (error) {
+    console.error('Error creating note:', error)
+  }
 })
 
 export const saveNoteAtom = atom(null, async (get, set, newContent: NoteContent) => {
@@ -53,20 +61,24 @@ export const saveNoteAtom = atom(null, async (get, set, newContent: NoteContent)
   const selectedNote = get(selectedNoteAtom)
   if (!selectedNote) return
 
-  await window.context.writeNote(selectedNote?.title, newContent)
+  try {
+    await window.context.writeNote(selectedNote?.title, newContent)
 
-  set(
-    notesAtom,
-    notes?.map((note) => {
-      if (note?.title === selectedNote?.title) {
-        return {
-          ...note,
-          updatedAt: new Date().getTime()
+    set(
+      notesAtom,
+      notes?.map((note) => {
+        if (note?.title === selectedNote?.title) {
+          return {
+            ...note,
+            updatedAt: new Date().getTime()
+          }
         }
-      }
-      return note
-    })
-  )
+        return note
+      })
+    )
+  } catch (error) {
+    console.error('Error saving note:', error)
+  }
 })
 
 export const deleteNoteAtom = atom(null, async (get, set) => {
@@ -76,12 +88,16 @@ export const deleteNoteAtom = atom(null, async (get, set) => {
   const selectedNote = get(selectedNoteAtom)
   if (!selectedNote) return
 
-  const isDeleted = await window.context.deleteNote(selectedNote?.title)
-  if (!isDeleted) return
+  try {
+    const isDeleted = await window.context.deleteNote(selectedNote?.title)
+    if (!isDeleted) return
 
-  set(
-    notesAtom,
-    notes?.filter((note) => note?.title !== selectedNote?.title)
-  )
-  set(selectedNoteIndexAtom, null)
+    set(
+      notesAtom,
+      notes?.filter((note) => note?.title !== selectedNote?.title)
+    )
+    set(selectedNoteIndexAtom, null)
+  } catch (error) {
+    console.error('Error deleting note:', error)
+  }
 })
