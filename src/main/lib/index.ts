@@ -2,11 +2,11 @@ import { APP_DIRECTORY_NAME, FILE_ENCODING, WELCOME_NOTE_FILE_NAME } from '@shar
 import { NoteInfo } from '@shared/models'
 import { CreateNote, DeleteNote, GetNotes, ReadNote, WriteNote } from '@shared/types'
 import { dialog } from 'electron'
-import { isEmpty} from 'lodash'
+import { isEmpty } from 'lodash'
 import { ensureDir, readdir, readFile, remove, stat, writeFile } from 'fs-extra'
 import { homedir } from 'os'
 import path from 'path'
-import welcomeNoteFile from "../../../resources/welcome-note.md?asset"
+import welcomeNoteFile from '../../../resources/welcome-note.md?asset'
 
 export const getRootDir = () => {
   return `${homedir}/${APP_DIRECTORY_NAME}`
