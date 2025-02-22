@@ -18,7 +18,6 @@ This project serves as a hands-on exploration of:
 - Real-time Markdown editing and preview
 - Clean, minimal interface
 - Automatic saving
-- Dark mode support
 - Organized note management
 - Fast and lightweight
 
