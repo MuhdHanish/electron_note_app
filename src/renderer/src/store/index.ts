@@ -33,15 +33,14 @@ export const selectedNoteAtom = unwrap(
   (prev) => prev ?? { title: '', content: '', updatedAt: Date.now() }
 )
 
-export const createEmptyNoteAtom = atom(null, (get, set) => {
+export const createEmptyNoteAtom = atom(null, async (get, set) => {
   const notes = get(notesAtom)
-
   if (!notes) return
 
-  const newNote = {
-    title: `New Note ${notes?.length + 1}`,
-    updatedAt: new Date().getTime()
-  }
+  const title = await window.context.createNote()
+  if (!title) return
+
+  const newNote = { title, updatedAt: Date.now() }
 
   set(notesAtom, [newNote, ...notes?.filter((note) => note?.title !== newNote?.title)])
   set(selectedNoteIndexAtom, 0)
