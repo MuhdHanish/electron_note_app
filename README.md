@@ -5,6 +5,7 @@ A Markdown note-taking application built with Electron, React, and TypeScript. T
 ## About
 
 This project serves as a hands-on exploration of:
+
 - Building cross-platform desktop applications with Electron
 - Implementing file system operations in a desktop environment
 - Managing application state with Jotai
@@ -35,17 +36,20 @@ This project serves as a hands-on exploration of:
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/MuhdHanish/electron_note_app.git
 cd electron_note_app
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Start the development server:
+
 ```bash
 npm run dev
 ```
@@ -53,11 +57,13 @@ npm run dev
 ## Build Commands
 
 Build for all platforms:
+
 ```bash
 npm run build
 ```
 
 Platform-specific builds:
+
 ```bash
 npm run build:win    # Windows
 npm run build:mac    # macOS
